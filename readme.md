@@ -23,6 +23,12 @@ I followed the best practice of sending only this structural metadata to the **G
 
 The **Coding agent** generates raw Python code (using Pandas, Matplotlib, and Seaborn) which is then executed within the local environment. Once the code runs, the **Analysis Agent** acts as a **Senior Data Scientist** to interpret those specific results—identifying outliers, highlighting data quality issues, and suggesting potential modeling strategies for the next phase of the project.
 
+## Architecture Evolution
+
+Initially, I built the reasoning engine using the open-source Mistral model running locally via Ollama. While this worked conceptually, my development environment (Mac with 8GB of RAM) was heavily bottlenecked. The 7-billion parameter Mistral model requires roughly 4GB of memory on its own, which caused significant system slowdowns during execution.
+
+To optimize performance, remove hardware constraints, and ensure a seamless user experience, I pivoted away from local inference to a cloud-based API architecture using Google Gemini 2.5 Flash.
+
 ## Key Features
 
 * **Boilerplate Automation:** Instant generation of summary statistics, distribution plots, and correlation heatmaps.
